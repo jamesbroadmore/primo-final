@@ -36,16 +36,18 @@ export default function Navigation() {
       isScrolled 
         ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-border' 
         : 'bg-transparent'
-    }`}>
+    }`} role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img 
-              src={logoImage} 
-              alt="Primo Pools Logo" 
-              className="h-12 w-auto transition-transform hover:scale-105"
-            />
+            <a href="#home" aria-label="Primo Pools Home">
+              <img 
+                src={logoImage} 
+                alt="Primo Pools Logo" 
+                className="h-12 w-auto transition-transform hover:scale-105"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
@@ -59,11 +61,12 @@ export default function Navigation() {
                     ? 'text-text-primary hover:text-forest-green' 
                     : 'text-white hover:text-gold'
                 }`}
+                aria-label={`Navigate to ${link.label}`}
               >
                 {link.label}
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
                   isScrolled ? 'bg-gold' : 'bg-gold'
-                }`} />
+                }`} aria-hidden="true" />
               </button>
             ))}
             <a 
@@ -73,6 +76,7 @@ export default function Navigation() {
                   ? 'text-text-primary hover:text-forest-green' 
                   : 'text-white hover:text-gold'
               }`}
+              aria-label="Customer Portal Login"
             >
               Portal
             </a>
@@ -83,6 +87,7 @@ export default function Navigation() {
             <button 
               onClick={() => scrollToSection('contact')}
               className="btn-primary"
+              aria-label="Get a quote for your pool project"
             >
               Get Quote
             </button>
@@ -95,6 +100,9 @@ export default function Navigation() {
               className={`p-2 transition-colors ${
                 isScrolled ? 'text-forest-green' : 'text-white'
               }`}
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -103,9 +111,12 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ${
-        isMenuOpen ? 'max-h-96' : 'max-h-0'
-      }`}>
+      <div 
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          isMenuOpen ? 'max-h-96' : 'max-h-0'
+        }`}
+        id="mobile-menu"
+      >
         <div className="bg-white/95 backdrop-blur-md border-t border-border">
           <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (

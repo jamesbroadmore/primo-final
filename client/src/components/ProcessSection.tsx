@@ -48,42 +48,42 @@ export default function ProcessSection() {
         </div>
         
         {/* Process Steps */}
-        <div className="grid md:grid-cols-5 gap-8 mb-16">
+        <div className="grid md:grid-cols-5 gap-8 mb-16 relative">
           {processSteps.map((step, index) => {
             const Icon = step.icon;
             return (
-            <div key={step.step}>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card-luxury text-center h-full"
-              >
-                <div className="flex flex-col items-center">
-                  {/* Step Number */}
-                  <div className="w-16 h-16 bg-forest-green rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">
-                    {step.step}
+              <div key={step.step}>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="card-luxury text-center h-full"
+                >
+                  <div className="flex flex-col items-center">
+                    {/* Step Number */}
+                    <div className="w-16 h-16 bg-forest-green rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">
+                      {step.step}
+                    </div>
+
+                    {/* Icon */}
+                    <Icon size={32} className="text-gold mb-4" />
+
+                    {/* Title */}
+                    <h3 className="text-xl font-semibold text-foreground mb-3">{step.title}</h3>
+
+                    {/* Description */}
+                    <p className="text-text-secondary text-sm">{step.description}</p>
                   </div>
-
-                  {/* Icon */}
-                  <Icon size={32} className="text-gold mb-4" />
-
-                  {/* Title */}
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{step.title}</h3>
-
-                  {/* Description */}
-                  <p className="text-text-secondary text-sm">{step.description}</p>
-                </div>
-              </motion.div>
-              
-              {/* Connector Line */}
-              {index < processSteps.length - 1 && (
-                <div className="hidden md:flex items-center justify-center mt-8 absolute right-0 top-24">
-                  <div className="w-12 h-1 bg-gradient-to-r from-forest-green to-gold" />
-                </div>
-              )}
-            </div>
-          )})}
+                </motion.div>
+                
+                {/* Connector Line - Desktop Only */}
+                {index < processSteps.length - 1 && (
+                  <div className="hidden md:block absolute left-1/2 top-16 w-12 h-1 bg-gradient-to-r from-forest-green to-gold" style={{ marginLeft: `${(index + 1) * 16.666 + 8}%` }} />
+                )}
+              </div>
+            );
+          })}
         </div>
         
         {/* Process Details */}

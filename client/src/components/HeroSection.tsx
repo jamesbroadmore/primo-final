@@ -22,8 +22,11 @@ export default function HeroSection() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('https://framerusercontent.com/images/QDv2QvgwIq6lwh2t2SmXUK0Q38.jpg')",
+          backgroundAttachment: 'fixed',
           filter: 'brightness(0.5)',
         }}
+        role="img"
+        aria-label="Luxurious pool construction background"
       />
       
       {/* Gradient Overlay for Luxury Feel */}
@@ -55,44 +58,46 @@ export default function HeroSection() {
           <button 
             onClick={scrollToPortfolio}
             className="group btn-primary inline-flex items-center justify-center gap-2"
+            aria-label="View our portfolio of completed pools"
           >
             View Our Portfolio
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
           </button>
           <button 
             onClick={scrollToContact}
             className="px-8 py-3 text-white border-2 border-white/30 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300 inline-flex items-center justify-center gap-2"
+            aria-label="Schedule a free consultation with our experts"
           >
             Schedule Consultation
-            <ArrowRight size={20} />
+            <ArrowRight size={20} aria-hidden="true" />
           </button>
         </div>
 
         {/* Trust Badges */}
         <div className="flex flex-wrap justify-center gap-6 mb-12 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
           <div className="flex items-center gap-2 text-white/80">
-            <span className="text-gold text-xl">✓</span>
+            <span className="text-gold text-xl" aria-hidden="true">✓</span>
             <span className="text-sm">20+ Years Experience</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
-            <span className="text-gold text-xl">✓</span>
+            <span className="text-gold text-xl" aria-hidden="true">✓</span>
             <span className="text-sm">500+ Completed Projects</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
-            <span className="text-gold text-xl">✓</span>
+            <span className="text-gold text-xl" aria-hidden="true">✓</span>
             <span className="text-sm">5-Star Rated</span>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce" aria-hidden="true">
         <ChevronDown size={28} className="text-gold" />
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl opacity-30 animate-pulse-soft" />
-      <div className="absolute bottom-20 left-10 w-40 h-40 bg-forest-green/10 rounded-full blur-3xl opacity-30 animate-pulse-soft" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-20 right-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl opacity-30 animate-pulse-soft" aria-hidden="true" />
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-forest-green/10 rounded-full blur-3xl opacity-30 animate-pulse-soft" style={{ animationDelay: '1s' }} aria-hidden="true" />
     </section>
   );
 }

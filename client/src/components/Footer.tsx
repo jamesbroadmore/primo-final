@@ -9,8 +9,14 @@ export default function Footer() {
     }
   };
 
+  const socialLinks = [
+    { name: 'Facebook', href: 'https://facebook.com/primopools', icon: Facebook },
+    { name: 'Instagram', href: 'https://instagram.com/primopools', icon: Instagram },
+    { name: 'LinkedIn', href: 'https://linkedin.com/company/primopools', icon: Linkedin }
+  ];
+
   return (
-    <footer className="bg-charcoal text-white py-16">
+    <footer className="bg-charcoal text-white py-16" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -24,56 +30,47 @@ export default function Footer() {
               Western Australia's premier luxury pool construction specialist, creating aquatic masterpieces since 2018.
             </p>
             <div className="flex gap-3">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gold/20 hover:bg-gold rounded-full flex items-center justify-center text-gold hover:text-charcoal transition-all duration-300"
-              >
-                <Facebook size={18} />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gold/20 hover:bg-gold rounded-full flex items-center justify-center text-gold hover:text-charcoal transition-all duration-300"
-              >
-                <Instagram size={18} />
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gold/20 hover:bg-gold rounded-full flex items-center justify-center text-gold hover:text-charcoal transition-all duration-300"
-              >
-                <Linkedin size={18} />
-              </a>
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a 
+                    key={social.name}
+                    href={social.href}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label={`Visit Primo Pools on ${social.name}`}
+                    className="w-10 h-10 bg-gold/20 hover:bg-gold rounded-full flex items-center justify-center text-gold hover:text-charcoal transition-all duration-300"
+                  >
+                    <Icon size={18} />
+                  </a>
+                );
+              })}
             </div>
           </div>
           
           {/* Services */}
-          <div>
+          <nav>
             <h4 className="text-lg font-semibold mb-6 text-gold">Services</h4>
             <ul className="space-y-3 text-white/70">
-              <li><a href="#" className="hover:text-gold transition-colors duration-300">New Pool Construction</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors duration-300">Pool Renovations</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors duration-300">Water Features</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors duration-300">Pool Landscaping</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors duration-300">Maintenance</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors duration-300">New Pool Construction</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors duration-300">Pool Renovations</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors duration-300">Water Features</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors duration-300">Pool Landscaping</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors duration-300">Maintenance</a></li>
             </ul>
-          </div>
+          </nav>
           
           {/* Quick Links */}
-          <div>
+          <nav>
             <h4 className="text-lg font-semibold mb-6 text-gold">Quick Links</h4>
             <ul className="space-y-3 text-white/70">
-              <li><button onClick={() => scrollToSection('portfolio')} className="hover:text-gold transition-colors duration-300">Portfolio</button></li>
-              <li><button onClick={() => scrollToSection('process')} className="hover:text-gold transition-colors duration-300">Our Process</button></li>
-              <li><button onClick={() => scrollToSection('story')} className="hover:text-gold transition-colors duration-300">About Us</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="hover:text-gold transition-colors duration-300">Services</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="hover:text-gold transition-colors duration-300">Contact</button></li>
+              <li><button onClick={() => scrollToSection('portfolio')} className="hover:text-gold transition-colors duration-300" aria-label="Go to portfolio">Portfolio</button></li>
+              <li><button onClick={() => scrollToSection('process')} className="hover:text-gold transition-colors duration-300" aria-label="Go to our process">Our Process</button></li>
+              <li><button onClick={() => scrollToSection('story')} className="hover:text-gold transition-colors duration-300" aria-label="Go to about us">About Us</button></li>
+              <li><button onClick={() => scrollToSection('services')} className="hover:text-gold transition-colors duration-300" aria-label="Go to services">Services</button></li>
+              <li><button onClick={() => scrollToSection('contact')} className="hover:text-gold transition-colors duration-300" aria-label="Go to contact">Contact</button></li>
             </ul>
-          </div>
+          </nav>
           
           {/* Contact Info */}
           <div>
@@ -86,11 +83,11 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-gold text-xs uppercase tracking-widest mb-1">Phone</p>
-                <p>(08) 9331 8998</p>
+                <p><a href="tel:0893318998" className="hover:text-gold transition-colors duration-300">(08) 9331 8998</a></p>
               </div>
               <div>
                 <p className="text-gold text-xs uppercase tracking-widest mb-1">Email</p>
-                <p>hello@primopools.com.au</p>
+                <p><a href="mailto:hello@primopools.com.au" className="hover:text-gold transition-colors duration-300">hello@primopools.com.au</a></p>
               </div>
             </div>
           </div>
