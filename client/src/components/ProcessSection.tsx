@@ -1,86 +1,97 @@
 import { motion } from "framer-motion";
+import { MessageSquare, Pencil, Cog, Hammer, CheckCircle } from "lucide-react";
 
 export default function ProcessSection() {
   const processSteps = [
     {
       step: 1,
-      icon: "fas fa-comments",
+      icon: MessageSquare,
       title: "Consult",
       description: "Free consultation to understand your vision and requirements"
     },
     {
       step: 2,
-      icon: "fas fa-drafting-compass",
+      icon: Pencil,
       title: "Design",
       description: "Custom 3D design and technical drawings tailored to your space"
     },
     {
       step: 3,
-      icon: "fas fa-cogs",
+      icon: Cog,
       title: "Engineering",
       description: "Detailed engineering and council approvals for safe construction"
     },
     {
       step: 4,
-      icon: "fas fa-hammer",
+      icon: Hammer,
       title: "Build",
       description: "Expert construction using premium materials and techniques"
     },
     {
       step: 5,
-      icon: "fas fa-key",
+      icon: CheckCircle,
       title: "Handover",
       description: "Complete handover with training and ongoing support"
     }
   ];
 
   return (
-    <section id="process" className="py-20 bg-quartz-white">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="process" className="py-24 bg-surface-primary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-cabinet font-bold text-deep-blue mb-6">Our Process</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From initial consultation to final handover, we ensure every step of your pool construction journey is seamless and stress-free.
+          <span className="text-gold text-sm font-semibold tracking-widest uppercase">Our Approach</span>
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-foreground mt-2 mb-6">Our Process</h2>
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+            From initial consultation to final handover, we ensure every step of your pool construction journey is seamless, professional, and exceeds expectations.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-5 gap-8">
-          {processSteps.map((step, index) => (
+        {/* Process Steps */}
+        <div className="grid md:grid-cols-5 gap-8 mb-16">
+          {processSteps.map((step, index) => {
+            const Icon = step.icon;
+            return (
             <div key={step.step}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center hover-lift glass-morphism p-6 rounded-xl"
+                className="card-luxury text-center h-full"
               >
-                <div 
-                  className="w-20 h-20 bg-turquoise rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 animate-float"
-                  style={{ animationDelay: `${index * 0.5}s` }}
-                >
-                  <i className={step.icon}></i>
+                <div className="flex flex-col items-center">
+                  {/* Step Number */}
+                  <div className="w-16 h-16 bg-forest-green rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">
+                    {step.step}
+                  </div>
+
+                  {/* Icon */}
+                  <Icon size={32} className="text-gold mb-4" />
+
+                  {/* Title */}
+                  <h3 className="text-xl font-semibold text-foreground mb-3">{step.title}</h3>
+
+                  {/* Description */}
+                  <p className="text-text-secondary text-sm">{step.description}</p>
                 </div>
-                <h3 className="text-xl font-cabinet font-bold text-deep-blue mb-3">{step.title}</h3>
-                <p className="text-gray-600 text-sm">{step.description}</p>
               </motion.div>
               
-              {/* Process connector */}
+              {/* Connector Line */}
               {index < processSteps.length - 1 && (
-                <div className="hidden md:flex items-center justify-center mt-8">
-                  <div className="w-full h-px bg-gradient-to-r from-turquoise to-deep-blue"></div>
+                <div className="hidden md:flex items-center justify-center mt-8 absolute right-0 top-24">
+                  <div className="w-12 h-1 bg-gradient-to-r from-forest-green to-gold" />
                 </div>
               )}
             </div>
-          ))}
+          )})}
         </div>
         
         {/* Process Details */}
-        <div className="mt-16 text-center">
-          <div className="glass-morphism rounded-xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-cabinet font-bold text-deep-blue mb-4">Quality Assured Process</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Our proven 5-step process ensures every project meets our exacting standards. With over 200 completed pools across Western Australia, 
-              we've refined our approach to deliver exceptional results on time and on budget. Each step includes quality checkpoints and client communication 
-              to ensure your complete satisfaction.
+        <div className="card-luxury">
+          <div className="text-center">
+            <h3 className="text-2xl font-serif font-bold text-foreground mb-6">Our Quality Assurance</h3>
+            <p className="text-text-secondary leading-relaxed max-w-4xl mx-auto">
+              With over 500 completed luxury pools across Western Australia, we've refined our approach to deliver exceptional results consistently. Each step includes rigorous quality checkpoints, transparent client communication, and adherence to industry best practices. We're committed to delivering your perfect pool on time, on budget, and beyond expectations—every single time.
             </p>
           </div>
         </div>
