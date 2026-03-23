@@ -114,14 +114,14 @@ export default function AISalesBot() {
   if (!isOpen) {
     return (
       <div className="fixed bottom-6 right-6 z-50">
-        <Button
+        <button
           onClick={() => setIsOpen(true)}
-          className="bg-turquoise hover:bg-turquoise/90 text-white rounded-full w-16 h-16 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-          size="lg"
+          className="bg-forest-green hover:bg-sage-green text-white rounded-full w-16 h-16 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+          aria-label="Open chat with AI consultant"
         >
           <MessageCircle className="h-6 w-6" />
-        </Button>
-        <div className="absolute -top-2 -left-2 w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+        </button>
+        <div className="absolute -top-2 -left-2 w-4 h-4 bg-gold rounded-full animate-pulse" aria-hidden="true" />
       </div>
     );
   }
@@ -131,29 +131,27 @@ export default function AISalesBot() {
       <Card className={`w-96 shadow-2xl transition-all duration-300 ${
         isMinimized ? 'h-16' : 'h-96'
       }`}>
-        <CardHeader className="bg-turquoise text-white p-4 rounded-t-lg">
+        <CardHeader className="bg-forest-green text-white p-4 rounded-t-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Bot className="h-5 w-5" />
               <CardTitle className="text-lg">Primo Pools AI Consultant</CardTitle>
             </div>
             <div className="flex items-center gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
+              <button
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20 p-1 h-8 w-8"
+                className="text-white hover:bg-white/20 p-1 h-8 w-8 rounded transition-colors"
+                aria-label={isMinimized ? "Expand chat" : "Minimize chat"}
               >
                 {isMinimized ? <Maximize2 className="h-4 w-4" /> : <Minimize2 className="h-4 w-4" />}
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
+              </button>
+              <button
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/20 p-1 h-8 w-8"
+                className="text-white hover:bg-white/20 p-1 h-8 w-8 rounded transition-colors"
+                aria-label="Close chat"
               >
                 <X className="h-4 w-4" />
-              </Button>
+              </button>
             </div>
           </div>
         </CardHeader>
@@ -169,26 +167,26 @@ export default function AISalesBot() {
                   }`}
                 >
                   {message.role === "assistant" && (
-                    <div className="w-8 h-8 bg-turquoise rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 bg-forest-green rounded-full flex items-center justify-center flex-shrink-0">
                       <Bot className="h-4 w-4 text-white" />
                     </div>
                   )}
                   <div
                     className={`max-w-xs px-4 py-2 rounded-lg ${
                       message.role === "user"
-                        ? "bg-turquoise text-white ml-auto"
-                        : "bg-gray-100 text-gray-800"
+                        ? "bg-forest-green text-white ml-auto"
+                        : "bg-surface-secondary text-text-primary"
                     }`}
                   >
                     <p className="text-sm whitespace-pre-wrap">{message.content}</p>
                     <p className={`text-xs mt-1 ${
-                      message.role === "user" ? "text-turquoise-100" : "text-gray-500"
+                      message.role === "user" ? "text-white/70" : "text-text-tertiary"
                     }`}>
                       {formatTime(message.timestamp)}
                     </p>
                   </div>
                   {message.role === "user" && (
-                    <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 bg-stone-gray rounded-full flex items-center justify-center flex-shrink-0">
                       <User className="h-4 w-4 text-white" />
                     </div>
                   )}
@@ -196,14 +194,14 @@ export default function AISalesBot() {
               ))}
               {chatMutation.isPending && (
                 <div className="flex gap-3 justify-start">
-                  <div className="w-8 h-8 bg-turquoise rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-forest-green rounded-full flex items-center justify-center flex-shrink-0">
                     <Bot className="h-4 w-4 text-white" />
                   </div>
-                  <div className="bg-gray-100 text-gray-800 px-4 py-2 rounded-lg">
+                  <div className="bg-surface-secondary text-text-primary px-4 py-2 rounded-lg">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-2 h-2 bg-text-tertiary rounded-full animate-bounce" />
+                      <div className="w-2 h-2 bg-text-tertiary rounded-full animate-bounce" style={{animationDelay: '0.1s'}} />
+                      <div className="w-2 h-2 bg-text-tertiary rounded-full animate-bounce" style={{animationDelay: '0.2s'}} />
                     </div>
                   </div>
                 </div>
@@ -211,7 +209,7 @@ export default function AISalesBot() {
               <div ref={messagesEndRef} />
             </CardContent>
 
-            <div className="p-4 border-t">
+            <div className="p-4 border-t border-border">
               <div className="flex gap-2">
                 <Input
                   value={inputMessage}
@@ -221,15 +219,16 @@ export default function AISalesBot() {
                   disabled={chatMutation.isPending}
                   className="flex-1"
                 />
-                <Button
+                <button
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim() || chatMutation.isPending}
-                  className="bg-turquoise hover:bg-turquoise/90"
+                  className="bg-forest-green hover:bg-sage-green text-white px-3 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-label="Send message"
                 >
                   <Send className="h-4 w-4" />
-                </Button>
+                </button>
               </div>
-              <p className="text-xs text-gray-500 mt-2 text-center">
+              <p className="text-xs text-text-tertiary mt-2 text-center">
                 Powered by AI • Response time ~5 seconds
               </p>
             </div>

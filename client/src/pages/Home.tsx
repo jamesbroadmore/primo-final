@@ -6,6 +6,7 @@ import PortfolioSection from "@/components/PortfolioSection";
 import ProcessSection from "@/components/ProcessSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import MobileBottomNav from "@/components/MobileBottomNav";
@@ -24,6 +25,7 @@ export default function Home() {
       <ProcessSection />
       <ServicesSection />
       <TestimonialsSection />
+      <FAQSection />
       <ContactSection />
       <Footer />
       <MobileBottomNav />

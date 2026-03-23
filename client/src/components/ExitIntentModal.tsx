@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Gift } from "lucide-react";
 
 export default function ExitIntentModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,9 +17,12 @@ export default function ExitIntentModal() {
   };
 
   const handleDownload = () => {
-    // Simulate PDF download
-    alert("Thank you! Your Pool Planning Checklist will be sent to your email shortly.");
-    setIsOpen(false);
+    if (email) {
+      // Simulate PDF download
+      alert("Thank you! Your Pool Planning Checklist will be sent to " + email + " shortly.");
+      setEmail("");
+      setIsOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -48,38 +52,38 @@ export default function ExitIntentModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="glass-morphism border-white/20 max-w-md">
+      <DialogContent className="bg-white border border-border max-w-md">
         <div className="text-center">
-          <div className="w-16 h-16 bg-turquoise rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-            <i className="fas fa-gift"></i>
+          <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center text-gold text-2xl mx-auto mb-4">
+            <Gift size={32} />
           </div>
-          <h3 className="text-2xl font-cabinet font-bold text-deep-blue mb-4">
-            Wait! Get Your Free Pool Planning Checklist
+          <h3 className="text-2xl font-serif font-bold text-foreground mb-4">
+            Don't Leave Without Your Free Guide!
           </h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-text-secondary mb-6">
             Download our comprehensive pool planning guide with everything you need to know before starting your project.
           </p>
-          <div className="space-y-4">
+          <div className="space-y-3">
             <Input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="focus:border-turquoise focus:ring-turquoise/20"
+              className="w-full"
             />
             <Button 
               onClick={handleDownload}
-              className="w-full bg-turquoise text-white hover:bg-opacity-90"
+              disabled={!email}
+              className="w-full bg-forest-green hover:bg-sage-green text-white"
             >
-              Download Free Guide
+              Get Your Free Checklist
             </Button>
-            <Button 
-              variant="ghost"
+            <button
               onClick={() => setIsOpen(false)}
-              className="w-full text-gray-500 hover:text-gray-700"
+              className="w-full text-text-secondary hover:text-foreground transition-colors"
             >
-              No thanks, I'll browse more
-            </Button>
+              Maybe Later
+            </button>
           </div>
         </div>
       </DialogContent>
