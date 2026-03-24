@@ -10,9 +10,9 @@ const ALL_ITEMS = [
   { id: 4, title: 'Nedlands Mosaic Waterline', cat: 'Luxury Mosaics', img: 'https://framerusercontent.com/images/u2y8Rvxvn9EIqYZ7AP2lmCdOc.png', desc: 'Bespoke 24m waterline mosaic band with gradient colour transition. Custom design.' },
   { id: 5, title: 'Claremont Complete Reno', cat: 'Pool Renovation', img: 'https://framerusercontent.com/images/dXYW7ghkOhRbXF6cX4NK0CJrI.png', desc: 'Full pool renovation: removal of old plaster, new porcelain tiling, LED upgrade.' },
   { id: 6, title: 'Peppermint Grove Lap Pool', cat: 'Pool Tiling', img: 'https://images.pexels.com/photos/9119787/pexels-photo-9119787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', desc: '18m lap pool with charcoal porcelain tiles, stainless steel lane markers, and dark grout.' },
-  { id: 7, title: 'Subiaco Pebble Renovation', cat: 'Pool Renovation', img: 'https://images.unsplash.com/photo-1771218830084-fdd272e149a1?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85', desc: 'Pebblecrete removal and full retile in Spanish porcelain. Waterline glass mosaic included.' },
-  { id: 8, title: 'South Perth Freeform', cat: 'Stone Surrounds', img: 'https://images.pexels.com/photos/756493/pexels-photo-756493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', desc: 'Freeform pool with natural limestone surround, bluestone coping, and tropical planting surround.' },
-  { id: 9, title: 'Mosman Park Marble Spa', cat: 'Luxury Mosaics', img: 'https://images.unsplash.com/photo-1758448756167-88dc934c58e4?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85', desc: 'Imported Calacatta marble spa interior and feature wall. Full 72m² installation.' },
+  { id: 7, title: 'Subiaco Pebble Renovation', cat: 'Pool Renovation', img: 'https://framerusercontent.com/images/hJCtYbi5cKh3R2PDg4lEH8U0Gz8.jpg', desc: 'Pebblecrete removal and full retile in Spanish porcelain. Waterline glass mosaic included.' },
+  { id: 8, title: 'South Perth Freeform', cat: 'Stone Surrounds', img: 'https://images.pexels.com/photos/9159380/pexels-photo-9159380.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', desc: 'Freeform pool with natural limestone surround, bluestone coping, and tropical planting surround.' },
+  { id: 9, title: 'Mosman Park Marble Spa', cat: 'Luxury Mosaics', img: 'https://framerusercontent.com/images/Ot58WJ0rtt12iGsj1VyZ9VMA2LY.jpeg', desc: 'Imported Calacatta marble spa interior and feature wall. Full 72m² installation.' },
 ];
 
 const FILTERS = ['All', 'Pool Tiling', 'Pool Renovation', 'Luxury Mosaics', 'Stone Surrounds'];
