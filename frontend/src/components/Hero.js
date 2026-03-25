@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
-const HERO_IMAGE = 'https://framerusercontent.com/images/QDv2QvgwIq6lwh2t2SmXUK0Q38.jpg';
+const HERO_IMAGE = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/n6kxlaes_a06b5548-eab9-4772-bbf7-ba8dd3a61963.jpg';
 
 export default function Hero() {
   const contentRef = useRef(null);

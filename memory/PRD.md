@@ -52,7 +52,15 @@ Build the Primo Pools website based on the attached logo images and markdown des
 6. ✅ AI Quote Assistant: Claude-powered floating chat widget
 7. ✅ Navigation: Transparent → dark blur on scroll
 
-## What's Been Implemented (Feb 2026)
+## What's Been Implemented (Feb–Mar 2026)
+- **2026-03-25**: Real Primo Pools project photos integrated across all pages
+  - 5 real project photos replacing all placeholder/framerusercontent images
+  - Hero: real lap pool with sandstone surround
+  - Portfolio: 9 project cards using real images (lap pool, mosaic, pool+spa, steps, renovation)
+  - Services: each of 4 services uses a dedicated real project photo
+  - Portfolio/Services page headers: real images as atmospheric backgrounds
+  - Tile strip on Services page shows all 5 real photos together
+
 - **2026-02-24**: Full MVP built from scratch
   - Complete 5-page website (Home, Portfolio, Services, Visualiser, Contact)
   - Dark luxury design matching Primo Pools brand identity

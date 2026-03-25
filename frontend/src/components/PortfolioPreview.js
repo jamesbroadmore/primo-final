@@ -3,13 +3,19 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Reveal from './Reveal';
 
+const IMG1 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/01x3ifcq_8f808cb0-50a9-4d96-bd40-e51aa2029b17.jpg';
+const IMG2 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/e4chzh2f_332b01d5-aada-46cb-b025-484034a6b079.jpg';
+const IMG3 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/n6kxlaes_a06b5548-eab9-4772-bbf7-ba8dd3a61963.jpg';
+const IMG4 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/uasn4iud_a44fbff6-e4fa-46e5-a7ac-fd69c1d97442.jpg';
+const IMG5 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/i6wrrp5z_ba6c4702-2935-4fe5-945e-93b7d66f0e23.jpg';
+
 const ITEMS = [
-  { id: 1, title: 'Cottesloe Infinity Edge', cat: 'Pool Tiling', img: 'https://framerusercontent.com/images/QDv2QvgwIq6lwh2t2SmXUK0Q38.jpg' },
-  { id: 2, title: 'Dalkeith Glass Mosaic Feature', cat: 'Luxury Mosaics', img: 'https://framerusercontent.com/images/hJCtYbi5cKh3R2PDg4lEH8U0Gz8.jpg' },
-  { id: 3, title: 'Applecross Travertine Surround', cat: 'Stone Surrounds', img: 'https://framerusercontent.com/images/Ot58WJ0rtt12iGsj1VyZ9VMA2LY.jpeg' },
-  { id: 4, title: 'Nedlands Waterline Mosaic', cat: 'Luxury Mosaics', img: 'https://framerusercontent.com/images/u2y8Rvxvn9EIqYZ7AP2lmCdOc.png' },
-  { id: 5, title: 'Claremont Pool Renovation', cat: 'Pool Renovation', img: 'https://framerusercontent.com/images/dXYW7ghkOhRbXF6cX4NK0CJrI.png' },
-  { id: 6, title: 'Peppermint Grove Lap Pool', cat: 'Pool Tiling', img: 'https://images.pexels.com/photos/9119787/pexels-photo-9119787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' },
+  { id: 1, title: 'Cottesloe Lap Pool', cat: 'Pool Tiling', img: IMG3 },
+  { id: 2, title: 'Dalkeith Glass Mosaic Feature', cat: 'Luxury Mosaics', img: IMG4 },
+  { id: 3, title: 'Applecross Pool & Spa', cat: 'Pool Renovation', img: IMG2 },
+  { id: 4, title: 'Nedlands Waterline Mosaic', cat: 'Luxury Mosaics', img: IMG1 },
+  { id: 5, title: 'Claremont Interior Retile', cat: 'Pool Renovation', img: IMG5 },
+  { id: 6, title: 'Peppermint Grove Stone Surround', cat: 'Stone Surrounds', img: IMG3 },
 ];
 
 export default function PortfolioPreview() {

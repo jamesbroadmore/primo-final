@@ -125,7 +125,7 @@ function CTABanner() {
   return (
     <section className="relative py-28 overflow-hidden">
       <div className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://framerusercontent.com/images/QDv2QvgwIq6lwh2t2SmXUK0Q38.jpg)' }} />
+        style={{ backgroundImage: 'url(https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/e4chzh2f_332b01d5-aada-46cb-b025-484034a6b079.jpg)' }} />
       <div className="absolute inset-0" style={{ background: 'rgba(8,9,14,0.82)' }} />
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <Reveal>

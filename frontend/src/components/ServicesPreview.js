@@ -3,30 +3,25 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Layers, RotateCcw, Sparkles } from 'lucide-react';
 import Reveal from './Reveal';
 
+const IMG1 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/01x3ifcq_8f808cb0-50a9-4d96-bd40-e51aa2029b17.jpg';
+const IMG2 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/e4chzh2f_332b01d5-aada-46cb-b025-484034a6b079.jpg';
+const IMG4 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/uasn4iud_a44fbff6-e4fa-46e5-a7ac-fd69c1d97442.jpg';
+
 const services = [
   {
-    icon: Layers,
-    title: 'Pool Tiling',
-    subtitle: 'New Installations',
+    icon: Layers, title: 'Pool Tiling', subtitle: 'New Installations',
     desc: 'Premium tile installations for new pool builds — from classic porcelain to hand-cut Italian mosaics. Every tile placed with millimetre precision.',
-    img: 'https://images.pexels.com/photos/9119787/pexels-photo-9119787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    tag: 'FROM $80/m²',
+    img: IMG1, tag: 'FROM $80/m²',
   },
   {
-    icon: RotateCcw,
-    title: 'Pool Renovation',
-    subtitle: 'Retiling & Resurfacing',
+    icon: RotateCcw, title: 'Pool Renovation', subtitle: 'Retiling & Resurfacing',
     desc: 'Breathe new life into tired pools. We remove, resurface, and retile existing pools — transforming dated surfaces into modern masterpieces.',
-    img: 'https://framerusercontent.com/images/u2y8Rvxvn9EIqYZ7AP2lmCdOc.png',
-    tag: 'FROM $65/m²',
+    img: IMG2, tag: 'FROM $65/m²',
   },
   {
-    icon: Sparkles,
-    title: 'Luxury Mosaics',
-    subtitle: 'Feature Art & Waterline',
+    icon: Sparkles, title: 'Luxury Mosaics', subtitle: 'Feature Art & Waterline',
     desc: 'Custom mosaic art, feature walls, and precision waterline tile bands that transform pools into works of art. Bespoke designs for discerning clients.',
-    img: 'https://framerusercontent.com/images/Ot58WJ0rtt12iGsj1VyZ9VMA2LY.jpeg',
-    tag: 'BESPOKE PRICING',
+    img: IMG4, tag: 'BESPOKE PRICING',
   },
 ];
 

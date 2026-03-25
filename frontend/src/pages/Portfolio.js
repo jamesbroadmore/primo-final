@@ -3,16 +3,22 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Reveal from '../components/Reveal';
 
+const IMG1 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/01x3ifcq_8f808cb0-50a9-4d96-bd40-e51aa2029b17.jpg';
+const IMG2 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/e4chzh2f_332b01d5-aada-46cb-b025-484034a6b079.jpg';
+const IMG3 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/n6kxlaes_a06b5548-eab9-4772-bbf7-ba8dd3a61963.jpg';
+const IMG4 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/uasn4iud_a44fbff6-e4fa-46e5-a7ac-fd69c1d97442.jpg';
+const IMG5 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/i6wrrp5z_ba6c4702-2935-4fe5-945e-93b7d66f0e23.jpg';
+
 const ALL_ITEMS = [
-  { id: 1, title: 'Cottesloe Infinity Edge', cat: 'Pool Tiling', img: 'https://framerusercontent.com/images/QDv2QvgwIq6lwh2t2SmXUK0Q38.jpg', desc: 'Full pool re-tile with Azure glass mosaic waterline feature. Award-winning luxury finish.' },
-  { id: 2, title: 'Dalkeith Glass Mosaic', cat: 'Luxury Mosaics', img: 'https://framerusercontent.com/images/hJCtYbi5cKh3R2PDg4lEH8U0Gz8.jpg', desc: 'Hand-cut Italian glass mosaic feature wall and waterline band. 48m² installation.' },
-  { id: 3, title: 'Applecross Travertine Resort', cat: 'Stone Surrounds', img: 'https://framerusercontent.com/images/Ot58WJ0rtt12iGsj1VyZ9VMA2LY.jpeg', desc: 'Full resort-style travertine pool surround, coping, and spa feature with matching bullnose.' },
-  { id: 4, title: 'Nedlands Mosaic Waterline', cat: 'Luxury Mosaics', img: 'https://framerusercontent.com/images/u2y8Rvxvn9EIqYZ7AP2lmCdOc.png', desc: 'Bespoke 24m waterline mosaic band with gradient colour transition. Custom design.' },
-  { id: 5, title: 'Claremont Complete Reno', cat: 'Pool Renovation', img: 'https://framerusercontent.com/images/dXYW7ghkOhRbXF6cX4NK0CJrI.png', desc: 'Full pool renovation: removal of old plaster, new porcelain tiling, LED upgrade.' },
-  { id: 6, title: 'Peppermint Grove Lap Pool', cat: 'Pool Tiling', img: 'https://images.pexels.com/photos/9119787/pexels-photo-9119787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', desc: '18m lap pool with charcoal porcelain tiles, stainless steel lane markers, and dark grout.' },
-  { id: 7, title: 'Subiaco Pebble Renovation', cat: 'Pool Renovation', img: 'https://framerusercontent.com/images/hJCtYbi5cKh3R2PDg4lEH8U0Gz8.jpg', desc: 'Pebblecrete removal and full retile in Spanish porcelain. Waterline glass mosaic included.' },
-  { id: 8, title: 'South Perth Freeform', cat: 'Stone Surrounds', img: 'https://images.pexels.com/photos/9159380/pexels-photo-9159380.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', desc: 'Freeform pool with natural limestone surround, bluestone coping, and tropical planting surround.' },
-  { id: 9, title: 'Mosman Park Marble Spa', cat: 'Luxury Mosaics', img: 'https://framerusercontent.com/images/Ot58WJ0rtt12iGsj1VyZ9VMA2LY.jpeg', desc: 'Imported Calacatta marble spa interior and feature wall. Full 72m² installation.' },
+  { id: 1, title: 'Cottesloe Lap Pool', cat: 'Pool Tiling', img: IMG3, desc: 'Full-length lap pool tiled with premium mosaic tiles and natural sandstone coping. Clean lines and exceptional finish.' },
+  { id: 2, title: 'Dalkeith Luxury Mosaic Feature', cat: 'Luxury Mosaics', img: IMG4, desc: 'Custom blue and gold mosaic feature with hand-cut Italian glass tiles. A bespoke centrepiece for a high-end home.' },
+  { id: 3, title: 'Applecross Pool & Spa', cat: 'Pool Renovation', img: IMG2, desc: 'Complete renovation of pool and spa combination with dark glass mosaic tiles and contemporary LED lighting.' },
+  { id: 4, title: 'Nedlands Mosaic Waterline', cat: 'Luxury Mosaics', img: IMG1, desc: 'Full mosaic interior with precision-tiled steps. Light mosaic blend creates a luminous underwater glow.' },
+  { id: 5, title: 'Claremont Interior Retile', cat: 'Pool Renovation', img: IMG5, desc: 'Pool interior renovation with geometric mosaic design. Step features retiled with contrasting dark border.' },
+  { id: 6, title: 'Peppermint Grove Stone Surround', cat: 'Stone Surrounds', img: IMG3, desc: 'Sandstone coping and pool surround with dark mosaic waterline band. Perfect integration with the home.' },
+  { id: 7, title: 'Subiaco Mosaic Steps', cat: 'Pool Tiling', img: IMG1, desc: 'Detailed mosaic tiling on entry steps and seating ledge. Uniform tile placement and flawless grout lines.' },
+  { id: 8, title: 'South Perth Modern Pool & Spa', cat: 'Pool Renovation', img: IMG2, desc: 'L-shaped pool and spa renovation with premium dark glass mosaic. Contemporary styling with resort-quality finish.' },
+  { id: 9, title: 'Mosman Park Gold Mosaic Art', cat: 'Luxury Mosaics', img: IMG4, desc: 'Dramatic blue and gold mosaic art installation. Custom-designed feature piece spanning 48m². Truly one-of-a-kind.' },
 ];
 
 const FILTERS = ['All', 'Pool Tiling', 'Pool Renovation', 'Luxury Mosaics', 'Stone Surrounds'];
@@ -25,8 +31,8 @@ export default function Portfolio() {
     <div className="min-h-screen section-dark pt-20">
       {/* Page header */}
       <div className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(https://framerusercontent.com/images/QDv2QvgwIq6lwh2t2SmXUK0Q38.jpg)' }} />
+        <div className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${IMG3})`, filter: 'brightness(0.35)' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <span className="section-label">Our Portfolio</span>
           <h1 className="section-title mt-2">Signature Projects</h1>

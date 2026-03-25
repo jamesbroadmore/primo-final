@@ -3,31 +3,33 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import Reveal from '../components/Reveal';
 
+const IMG1 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/01x3ifcq_8f808cb0-50a9-4d96-bd40-e51aa2029b17.jpg';
+const IMG2 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/e4chzh2f_332b01d5-aada-46cb-b025-484034a6b079.jpg';
+const IMG3 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/n6kxlaes_a06b5548-eab9-4772-bbf7-ba8dd3a61963.jpg';
+const IMG4 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/uasn4iud_a44fbff6-e4fa-46e5-a7ac-fd69c1d97442.jpg';
+const IMG5 = 'https://customer-assets.emergentagent.com/job_visual-md-platform/artifacts/i6wrrp5z_ba6c4702-2935-4fe5-945e-93b7d66f0e23.jpg';
+
 const services = [
   {
-    tag: 'Premium Installation', title: 'Pool Tiling', subtitle: 'New Pool & Spa Tiling',
-    img: 'https://images.pexels.com/photos/9119787/pexels-photo-9119787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    tag: 'Premium Installation', title: 'Pool Tiling', subtitle: 'New Pool & Spa Tiling', img: IMG1,
     desc: 'Flawless tile installations for new pool builds. We work with any tile type — from classic porcelain to hand-cut Italian mosaics — and every tile is placed with millimetre precision.',
     points: ['Full interior pool tiling', 'Waterline tile bands', 'Spa and water feature tiling', 'All tile types available', 'Lifetime workmanship warranty'],
     priceRange: '$80 – $200 per m²',
   },
   {
-    tag: 'Transformation', title: 'Pool Renovation', subtitle: 'Retiling & Resurfacing',
-    img: 'https://framerusercontent.com/images/u2y8Rvxvn9EIqYZ7AP2lmCdOc.png',
+    tag: 'Transformation', title: 'Pool Renovation', subtitle: 'Retiling & Resurfacing', img: IMG2,
     desc: "Turn an aged, tired pool into a modern showpiece. We remove existing surfaces, prepare the substrate, and re-tile with premium materials suited to Perth's climate.",
     points: ['Old surface removal', 'Substrate preparation & repair', 'Full retiling or feature upgrades', 'Grout restoration', 'Leak detection & repair'],
     priceRange: '$65 – $180 per m²',
   },
   {
-    tag: 'Artisan Craft', title: 'Luxury Mosaics', subtitle: 'Feature Art & Waterline Bands',
-    img: 'https://framerusercontent.com/images/Ot58WJ0rtt12iGsj1VyZ9VMA2LY.jpeg',
+    tag: 'Artisan Craft', title: 'Luxury Mosaics', subtitle: 'Feature Art & Waterline Bands', img: IMG4,
     desc: 'Custom mosaic art and feature walls that transform pools into works of art. We import hand-cut Venetian glass and Italian ceramic mosaics and can reproduce any design.',
     points: ['Custom mosaic artwork', '24m waterline bands', 'Floor feature medallions', 'Feature wall mosaics', 'Bespoke colour design service'],
     priceRange: 'Custom quote',
   },
   {
-    tag: 'Premium Finish', title: 'Stone Surrounds', subtitle: 'Coping, Decking & Surrounds',
-    img: 'https://framerusercontent.com/images/QDv2QvgwIq6lwh2t2SmXUK0Q38.jpg',
+    tag: 'Premium Finish', title: 'Stone Surrounds', subtitle: 'Coping, Decking & Surrounds', img: IMG3,
     desc: 'The area around your pool is as important as the pool itself. We install natural stone coping, pool decking, and surrounds that frame your pool beautifully.',
     points: ['Natural travertine coping', 'Limestone and sandstone decks', 'Non-slip pool surrounds', 'Steps and entry features', 'Matching outdoor living areas'],
     priceRange: '$90 – $250 per m²',
@@ -48,8 +50,8 @@ export default function Services() {
     <div className="min-h-screen section-dark pt-20">
       {/* Header */}
       <div className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-15"
-          style={{ backgroundImage: 'url(https://framerusercontent.com/images/hJCtYbi5cKh3R2PDg4lEH8U0Gz8.jpg)' }} />
+        <div className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${IMG5})`, filter: 'brightness(0.3)' }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <span className="section-label">Our Services</span>
           <h1 className="section-title mt-2">Materials & Expertise</h1>
@@ -107,6 +109,17 @@ export default function Services() {
             <h2 className="section-title">Premium Tile Collection</h2>
             <div className="gold-line mx-auto" />
           </Reveal>
+
+          {/* Real project image strip */}
+          <div className="grid grid-cols-5 gap-2 mb-12 rounded-lg overflow-hidden">
+            {[IMG1, IMG2, IMG3, IMG4, IMG5].map((img, i) => (
+              <div key={i} className="relative overflow-hidden h-32">
+                <img src={img} alt={`Primo Pools project ${i + 1}`} loading="lazy"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {tiles.map((tile, i) => (
               <Reveal key={tile.name} delay={i * 80}>
