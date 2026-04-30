@@ -63,16 +63,19 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
+    if (!db) return undefined;
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
+    if (!db) return undefined;
     const [user] = await db.select().from(users).where(eq(users.username, username));
     return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
+    if (!db) throw new Error("Database not initialized");
     const [user] = await db
       .insert(users)
       .values(insertUser)
@@ -81,6 +84,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createContact(insertContact: InsertContact): Promise<Contact> {
+    if (!db) throw new Error("Database not initialized");
     const [contact] = await db
       .insert(contacts)
       .values(insertContact)
@@ -89,6 +93,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getContacts(): Promise<Contact[]> {
+    if (!db) return [];
     return await db
       .select()
       .from(contacts)
@@ -96,22 +101,26 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getContact(id: number): Promise<Contact | undefined> {
+    if (!db) return undefined;
     const [contact] = await db.select().from(contacts).where(eq(contacts.id, id));
     return contact || undefined;
   }
 
   // Customer methods
   async getCustomer(id: number): Promise<Customer | undefined> {
+    if (!db) return undefined;
     const [customer] = await db.select().from(customers).where(eq(customers.id, id));
     return customer || undefined;
   }
 
   async getCustomerByEmail(email: string): Promise<Customer | undefined> {
+    if (!db) return undefined;
     const [customer] = await db.select().from(customers).where(eq(customers.email, email));
     return customer || undefined;
   }
 
   async createCustomer(insertCustomer: InsertCustomer): Promise<Customer> {
+    if (!db) throw new Error("Database not initialized");
     const [customer] = await db
       .insert(customers)
       .values(insertCustomer)
@@ -120,6 +129,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateCustomer(id: number, updateData: Partial<InsertCustomer>): Promise<Customer> {
+    if (!db) throw new Error("Database not initialized");
     const [customer] = await db
       .update(customers)
       .set({ ...updateData, updatedAt: new Date() })
@@ -130,11 +140,13 @@ export class DatabaseStorage implements IStorage {
 
   // Project methods
   async getProject(id: number): Promise<Project | undefined> {
+    if (!db) return undefined;
     const [project] = await db.select().from(projects).where(eq(projects.id, id));
     return project || undefined;
   }
 
   async getProjectsByCustomer(customerId: number): Promise<Project[]> {
+    if (!db) return [];
     return await db
       .select()
       .from(projects)
@@ -143,6 +155,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProject(insertProject: InsertProject): Promise<Project> {
+    if (!db) throw new Error("Database not initialized");
     const [project] = await db
       .insert(projects)
       .values(insertProject)
@@ -151,6 +164,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateProject(id: number, updateData: Partial<InsertProject>): Promise<Project> {
+    if (!db) throw new Error("Database not initialized");
     const [project] = await db
       .update(projects)
       .set({ ...updateData, updatedAt: new Date() })
@@ -161,6 +175,7 @@ export class DatabaseStorage implements IStorage {
 
   // Project update methods
   async getProjectUpdates(projectId: number): Promise<ProjectUpdate[]> {
+    if (!db) return [];
     return await db
       .select()
       .from(projectUpdates)
@@ -169,6 +184,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProjectUpdate(insertUpdate: InsertProjectUpdate): Promise<ProjectUpdate> {
+    if (!db) throw new Error("Database not initialized");
     const [update] = await db
       .insert(projectUpdates)
       .values(insertUpdate)
@@ -178,6 +194,7 @@ export class DatabaseStorage implements IStorage {
 
   // Project document methods
   async getProjectDocuments(projectId: number): Promise<ProjectDocument[]> {
+    if (!db) return [];
     return await db
       .select()
       .from(projectDocuments)
@@ -186,6 +203,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProjectDocument(insertDocument: InsertProjectDocument): Promise<ProjectDocument> {
+    if (!db) throw new Error("Database not initialized");
     const [document] = await db
       .insert(projectDocuments)
       .values(insertDocument)
@@ -195,6 +213,7 @@ export class DatabaseStorage implements IStorage {
 
   // Project message methods
   async getProjectMessages(projectId: number): Promise<ProjectMessage[]> {
+    if (!db) return [];
     return await db
       .select()
       .from(projectMessages)
@@ -203,6 +222,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProjectMessage(insertMessage: InsertProjectMessage): Promise<ProjectMessage> {
+    if (!db) throw new Error("Database not initialized");
     const [message] = await db
       .insert(projectMessages)
       .values(insertMessage)
@@ -211,6 +231,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async markMessagesAsRead(projectId: number, senderId?: number): Promise<void> {
+    if (!db) return;
     if (senderId !== undefined) {
       await db
         .update(projectMessages)
